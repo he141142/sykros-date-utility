@@ -28,7 +28,6 @@ isExpired = _.DisablePlugin().IsExpired(new Date("2022-04-10")); //return true t
 /**
  * Set date period to 5 this mean add 5 days to date parameter
  */
- _ = _.SetDatePeriod(5);
-isExpired = _.EnablePlugin().IsExpired(new Date("2022-04-10")); // return false time.now() < 2022-09-10   
+isExpired = _.EnablePlugin().SetDatePeriod(5).IsExpired(new Date("2022-04-10")); // return false time.now() < 2022-09-10   
 
 ```
