@@ -134,3 +134,23 @@ export enum UTC_MODE {
   START_DATE = 1,
   END_DATE = 2,
 }
+
+let _ = dateUtilities({
+    datePeriod: 5,
+    logger: "common logger",
+    debug: true,
+    pluginPeriod: false,
+    utcMode: UTC_MODE.START_DATE
+})
+
+let isExpired: boolean;
+//return false
+isExpired = _.DisablePlugin().IsExpired(new Date("2022-12-11"));
+
+isExpired = _.DisablePlugin().IsExpired(new Date("2022-04-10")); //return true time.now() > 2022-04-10   
+/**
+ * Set date period to 5 this mean add 5 days to date parameter
+ */
+ _ = _.SetDatePeriod(5);
+isExpired = _.EnablePlugin().IsExpired(new Date("2022-04-10")); // return false time.now() < 2022-09-10   
+
